@@ -1,4 +1,11 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import VueSignaturePad from 'vue-signature-pad';
 
-createApp(App).mount('#app')
+const app = createApp(App);
+app.use(VueSignaturePad);
+app.mount('#app');
+app.component('vue-signature-pad', VueSignaturePad);
+
+import '@fontsource-variable/inter';
+
