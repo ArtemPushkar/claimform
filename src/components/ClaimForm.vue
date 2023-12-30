@@ -223,7 +223,7 @@ export default {
       let y = 20; // величина первого отступа
 
       // Инфоблок КОМУ: ОТ:
-      let text1 = 'Кому:' + this.data.nameBuilder + '\n' +  this.data.addressBuilder + '\n' + 'От:'+ this.data.nameClaimant + '\n' + this.data.addressClaimant + '\n' + 'т.' + this.data.contactNumber;
+      let text1 = 'Кому:' + (this.data.nameBuilder || '') + '\n' +  (this.data.addressBuilder || '') + '\n' + 'От:'+ (this.data.nameClaimant || '') + '\n' + (this.data.addressClaimant || '') + '\n' + 'т.' + (this.data.contactNumber || '');
       this.doc.text(text1,120,y, {maxWidth: constants.maxWidthInfoText});
       // Вычисление отступа по "y" после "Инфоблок КОМУ: ОТ:"
       let textJoinHeight = this.doc.getTextDimensions(text1, {maxWidth: constants.maxWidthInfoText}).h;
@@ -239,35 +239,35 @@ export default {
       y += 15;
 
       // Местонахождение дефекта
-      let text2 = `Местонахождение дефекта: ${this.data.roomType} № ${this.data.roomNumber}; Этаж ${this.data.floor}; Подъезд ${this.data.entrance}; Строение ${this.data.building}`;
+      let text2 = `Местонахождение дефекта: ${this.data.roomType || ''} № ${this.data.roomNumber || ''}; Этаж ${this.data.floor || ''}; Подъезд ${this.data.entrance || ''}; Строение ${this.data.building || ''}`;
       this.doc.text(text2,20, y, {maxWidth: constants.maxWidthMainText});
       // Вычисление отступа по "y" после "Местонахождение дефекта"
       let textJoinHeight2 = this.doc.getTextDimensions(text2, {maxWidth: constants.maxWidthMainText}).h;
       y += textJoinHeight2 + 7;
 
       // Адрес местонахождения дефекта
-      let text3 = `по адресу: ${this.data.addressRoom}`;
+      let text3 = `по адресу: ${this.data.addressRoom || ''}`;
       this.doc.text(text3, 20, y, {maxWidth: constants.maxWidthMainText});
       // Вычисление отступа по "y" после "Адрес местонахождения дефекта"
       let textJoinHeight3 = this.doc.getTextDimensions(text3, {maxWidth: constants.maxWidthMainText}).h;
       y += textJoinHeight3 + 7;
 
       // Дефектный участок
-      let text4 = `Дефектный участок: ${this.data.claimType}, выявлен ${this.data.dateOfDefectDetection}`;
+      let text4 = `Дефектный участок: ${this.data.claimType || ''}, выявлен ${this.data.dateOfDefectDetection || ''}`;
       this.doc.text(text4, 20, y, {maxWidth: constants.maxWidthMainText});
       // Вычисление отступа по "y" после "Дефектный участок"
       let textJoinHeight4 = this.doc.getTextDimensions(text4, {maxWidth: constants.maxWidthMainText}).h;
       y += textJoinHeight4 + 7;
 
       // Пояснительная записка
-      let text5 = `Пояснительная записка:\n${this.data.textIndent}${this.data.mainText}`;
+      let text5 = `Пояснительная записка:\n${this.data.textIndent || ''}${this.data.mainText || ''}`;
       this.doc.text(text5,20,y, {maxWidth: constants.maxWidthMainText});
       // Вычисление отступа по "y" после "Пояснительная записка"
       let textJoinHeight5 = this.doc.getTextDimensions(text5, {maxWidth: constants.maxWidthMainText}).h;
       y += textJoinHeight5 + 40;
 
       // Подписант
-      this.doc.text(`${this.data.nameClaimant}`,20, y);
+      this.doc.text(`${this.data.nameClaimant || ''}`,20, y);
 
       // Добавление подписи на документ
       const { data } = this.$refs.signaturePad.saveSignature();
@@ -287,7 +287,7 @@ export default {
         const imgData = event.target.result;
         this.doc.addPage();
         y = 20;
-        this.doc.text(`Приложение к претензии № ${this.claimNumber}`,20, y);
+        this.doc.text(`Приложение к претензии № ${this.claimNumber || ''}`,20, y);
         y+=5;
         this.doc.addImage(imgData, 'JPEG', 20, y, 130, 170)
         this.doc.save('форма.pdf');
