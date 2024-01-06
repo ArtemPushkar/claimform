@@ -1,17 +1,10 @@
 <template>
-  <ClaimForm/>
+  <router-view></router-view>
 </template>
 
 <script>
-import ClaimForm from './components/ClaimForm.vue'
-
-
 export default {
   name: 'App',
-
-  components: {
-    ClaimForm,
-  }
 }
 </script>
 
