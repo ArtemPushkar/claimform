@@ -1,5 +1,5 @@
 .homeButton {
-    padding: 16px 24px;
+    padding: 1rem;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -8,7 +8,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: 0 10px;
+    margin: 1rem;
     transition: background-color 0.3s ease;
 }
 
@@ -17,20 +17,17 @@
 }
 
 .formButton {
-    padding: 8px 12px;
+    padding: 0.2rem;
     font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
     color: var(--btn-text-color);
-    background-color: var(--btn-bg-color);
+    background-color: var(--btnMini-bg-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: 0 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.1s ease;
 }
 
 .formButton:hover {
-    background-color: var(--btn-bgHover-color);
+    background-color: var(--btnMini-bgHover-color);
 }
 

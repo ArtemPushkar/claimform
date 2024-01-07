@@ -2,15 +2,23 @@
   <body>
     <div id="app">
       <div class="container">
-        <form onsubmit="return false">
-          <router-link to="/homeComponent">
-            <button class="formButton">Назад</button>
-          </router-link>
-          <h2>1. Заполните форму<br>2. Нажмите кнопку "Готово"<br>3. На ваше устройство загрузится составленная претензия в формате PDF</h2>
+        <form class="form" onsubmit="return false">
+          <div class="headerForm">
+            <router-link to="/homeComponent">
+              <button class="formButton">Закрыть форму</button>
+            </router-link>
+            <h2>
+              1. Заполните форму и нажмите кнопку "Скачать претензию".<br>
+              2. На ваше устройство загрузится составленная претензия в формате PDF.<br>
+              3. Отправьте претензию застройщику через управляющую компанию.
+            </h2>
+          </div>
+
           <h3>Кому:</h3>
 
           <div class="input-container">
-            <label for="nameBuilder">Название застройщика:</label>
+            <label
+                class="labelForm" for="nameBuilder">Название застройщика</label>
             <input
                 class="inputForm"
                 type="text"
@@ -21,16 +29,16 @@
             <p class="hintInputContainer">
               Обратите внимание, требуется указать <br><b>правильное, полное</b> название застройщика. <br>
               Узнать его можно:<br>
-              - В договоре купли-продажи квартиры.<br>
+              - В управляющей компании дома.<br>
               - На сайте <a href="https://erzrf.ru/?region=moskva&regionKey=143443001&costType=1" target="_blank">erzrf.ru</a> по названию ЖК или адресу.<br>
-              - В управляющей компании дома.<br><br>
-              Например, на сайте у застройщика может быть написано<br>ООО "Застройщик", но конкретно ваш
-              ЖК застройщик строил<br>под названием ООО СЗ "Застройщик+"
+              - В договоре купли-продажи квартиры.<br><br>
+              Например, общеизвестное название застройщика - <b>ООО "Застройщик"</b>,<br> но конкретно ваш
+              ЖК строился<br>под названием <b>ООО СЗ "Застройщик+"</b> - значит указываем его.
             </p>
           </div>
 
           <div class="input-container">
-            <label for="addressBuilder">Юридический адрес застройщика:</label>
+            <label class="labelForm" for="addressBuilder">Юридический адрес застройщика</label>
             <input
                 class="inputForm"
                 type="text"
@@ -44,7 +52,7 @@
           <h3>От кого:</h3>
 
           <div class="input-container">
-            <label for="nameClaimant">ФИО заявителя:</label>
+            <label class="labelForm" for="nameClaimant">ФИО заявителя</label>
             <input
                 class="inputForm"
                 type="text"
@@ -58,7 +66,7 @@
           </div>
 
           <div class="input-container">
-            <label for="addressClaimant">Почтовый адрес заявителя:</label>
+            <label class="labelForm" for="addressClaimant">Почтовый адрес заявителя</label>
             <input
                 class="inputForm"
                 type="text"
@@ -71,7 +79,7 @@
           </div>
 
           <div class="input-container">
-            <label for="contactNumber">Контактный номер телефона:</label>
+            <label class="labelForm" for="contactNumber">Контактный номер телефона</label>
             <input
                 class="inputForm"
                 type="text"
@@ -84,34 +92,11 @@
             </p>
           </div>
 
-          <div class="input-container">
-            <label for="contactNumber">Контактный номер телефона:</label>
-            <v-container>
-              <v-row>
-                <v-col cols="12">
-                  <v-text-field
-                      v-model="phoneNumber"
-                      label="Номер телефона"
-                      prepend-icon="phone"
-                      mask="(###) ###-####"
-                      placeholder="(123) 456-7890"
-                      hint="Введите номер телефона"
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-
-
-            <p class="hintInputContainer">
-              Укажите контактный номер телефона по которому застройщик сможет с вами связаться.
-            </p>
-          </div>
-
           <h3>ПРЕТЕНЗИЯ</h3>
 
           <div class="input-container" @change="handleRoomTypeChange">
-            <label for="roomType">Местонахождение дефекта:</label>
-            <select id="roomType" v-model="roomType" required>
+            <label class="labelForm" for="roomType">Местонахождение дефекта</label>
+            <select class="selectInput" id="roomType" v-model="roomType" required>
               <option
                   v-for="roomType in optionsRoomType"
                   :key="roomType.id"
@@ -126,7 +111,7 @@
           </div>
 
           <div class="input-container" v-if="roomType === 'Квартира №' || roomType === 'Квартира с ремонтом `ПОД КЛЮЧ` от застройщика №'">
-            <label for="roomNumber">№ квартиры:</label>
+            <label class="labelForm" for="roomNumber">№ квартиры</label>
             <input
                 class="inputForm"
                 type="text"
@@ -137,7 +122,7 @@
           </div>
 
           <div class="input-container" v-if="roomType === 'Парковочное место №'">
-            <label for="parkingNumber">№ парковочного места:</label>
+            <label class="labelForm" for="parkingNumber">№ парковочного места</label>
             <input
                 class="inputForm"
                 type="text"
@@ -148,7 +133,7 @@
           </div>
 
           <div class="input-container">
-            <label for="addressRoom">По адресу:</label>
+            <label class="labelForm" for="addressRoom">По адресу</label>
             <input
                 class="inputForm"
                 type="text"
@@ -162,24 +147,24 @@
 
           <div class="input-container-mini">
             <div>
-              <label for="floor">Этаж:</label>
+              <label class="labelForm" for="floor">Этаж</label>
               <input class="inputForm" type="text" id="floor" v-model="data.floor"/>
             </div>
 
             <div>
-              <label for="entrance">Подъезд:</label>
+              <label class="labelForm" for="entrance">Подъезд</label>
               <input class="inputForm" type="text" id="entrance" v-model="data.entrance"/>
             </div>
 
             <div>
-              <label for="building">Строение:</label>
+              <label class="labelForm" for="building">Строение</label>
               <input class="inputForm" type="text" id="building" v-model="data.building"/>
             </div>
           </div>
 
           <div class="input-container">
-            <label for="claimType">Дефектный участок:</label>
-            <select id="claimType" v-model="claimType">
+            <label class="labelForm" for="claimType">Дефектный участок</label>
+            <select class="selectInput" id="claimType" v-model="claimType">
               <option
                   v-for="claimType in optionsClaimType"
                   :key="claimType.id"
@@ -187,11 +172,14 @@
                 {{ claimType.value }}
               </option>
             </select>
+            <p class="hintInputContainer">
+              Определите конкретный участок нахождения дефекта.
+            </p>
           </div>
 
           <div class="input-container">
-            <label for="claimRepeating">Дефект выявлен впервые или повторно?</label>
-            <select id="claimRepeating" v-model="claimRepeating">
+            <label class="labelForm" for="claimRepeating">Дефект выявлен впервые или повторно?</label>
+            <select class="selectInput" id="claimRepeating" v-model="claimRepeating">
               <option
               v-for="claimRepeating in optionsClaimRepeating"
               :key="claimRepeating.id"
@@ -199,10 +187,13 @@
                 {{ claimRepeating.value }}
               </option>
             </select>
+            <p class="hintInputContainer">
+              Если данный дефект уже устранялся ранее и возник снова - выбирайте "повторно".
+            </p>
           </div>
 
           <div class="input-container">
-            <label for="dateOfDefectDetection">Дата обнаружения дефекта:</label><br />
+            <label class="labelForm" for="dateOfDefectDetection">Дата обнаружения дефекта</label><br />
             <input
                 class="inputForm"
                 type="date"
@@ -215,7 +206,7 @@
           </div>
 
           <div class="input-container">
-            <label for="mainText">Пояснительная записка:</label>
+            <label class="labelForm" for="mainText">Пояснительная записка</label>
             <textarea
                 type="text"
                 id="mainText"
@@ -232,14 +223,14 @@
           <h3>Приложение</h3>
 
           <div class="input-container">
-            <label for="file">Фото:</label>
+            <label class="labelForm" for="file">Фото</label>
             <input class="inputForm" type="file" id="file" ref="fileInput">
             <p class="hintInputContainer">
               Загрузите одну фотографию выявленного дефекта.
             </p>
           </div>
 
-          <h3>Подпись</h3>
+          <h3>Подпишите составленную претензию</h3>
 
           <div>
             <VueSignaturePad
@@ -255,15 +246,13 @@
           <input
               class="inputSubmit"
             type="submit"
-            value="Готово"
+            value="Скачать претензию"
             @click="createPDF"/>
         </form>
       </div>
     </div>
-
-    </body>
-
-  </template>
+  </body>
+</template>
 
 
 <script>
@@ -407,7 +396,7 @@ export default {
         y = 20;
         this.doc.text(`Приложение к претензии № ${claimNumber}`,20, y);
         y+=5;
-        this.doc.addImage(imgData, 'JPEG', 20, y, 130, 170)
+        this.doc.addImage(imgData, 'JPEG', 20, y, 145, 220)
         this.doc.save('форма.pdf');
       }
     }
@@ -427,9 +416,8 @@ export default {
 .container {
   display: grid;
   grid-template-columns: 0.1fr 1fr 1fr 0.1fr;
-  gap: 20px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1rem;
   background-color: var(--bg-color);
   border-radius: var(--border-radius);
 }
@@ -437,18 +425,17 @@ export default {
 form {
   grid-column: 2;
   display: block;
-  width: 100%;
+  width: 90%;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+.headerForm{
+  background-color: #f1f1f1;
   padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  font-size: 16px;
-}
-
-select {
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-left: 1%;
-  width: 90%;
 }
 
 #signature {
@@ -458,10 +445,6 @@ select {
 @media screen and (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
-  }
-
-  .form-button {
-    grid-column: 1;
   }
 }
 

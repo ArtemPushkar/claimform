@@ -1,10 +1,13 @@
 :root {
     --input-bg-color: #505050;
     --input-border-color: #383838;
-    --bg-color: #f6f6f6;
+    --bg-color: #dadada;
     --btn-bg-color: #3498db;
     --btn-bgHover-color: #2980b9;
+    --btnMini-bg-color: #4f4f4f;
+    --btnMini-bgHover-color: #383838;
     --btn-text-color: #fff;
     --border-color: #cbcbcb;
     --border-radius: 6px;
+    --label-color: #f5f5f5;
 }
