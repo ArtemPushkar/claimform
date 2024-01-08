@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../helpers/buttonStyles.css";
+@import "../assets/buttonStyles.css";
 
 body {
   margin: 0;

@@ -2,11 +2,11 @@
   <body>
     <div id="app">
       <div class="container">
+        <router-link to="/homeComponent">
+          <button class="formButton">Закрыть форму</button>
+        </router-link>
         <form class="form" onsubmit="return false">
           <div class="headerForm">
-            <router-link to="/homeComponent">
-              <button class="formButton">Закрыть форму</button>
-            </router-link>
             <h2>
               1. Заполните форму и нажмите кнопку "Скачать претензию".<br>
               2. На ваше устройство загрузится составленная претензия в формате PDF.<br>
@@ -406,26 +406,26 @@ export default {
 
 
 <style scoped>
-@import "../helpers/colors.css";
-@import "../helpers/buttonStyles.css";
-@import "../helpers/inputStyles.css";
-@import "../helpers/selectStyles.css";
-@import "../helpers/dateInputStyles.css";
-@import "../helpers/label.css";
+@import "../assets/colors.css";
+@import "../assets/buttonStyles.css";
+@import "../assets/inputStyles.css";
+@import "../assets/selectStyles.css";
+@import "../assets/dateInputStyles.css";
+@import "../assets/label.css";
 
 .container {
   display: grid;
-  grid-template-columns: 0.1fr 1fr 1fr 0.1fr;
-  margin: 0 auto;
-  padding: 1rem;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  padding: 0;
   background-color: var(--bg-color);
   border-radius: var(--border-radius);
 }
 
 form {
-  grid-column: 2;
+  grid-column: 1;
   display: block;
-  width: 90%;
+  margin: 0;
   padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -442,10 +442,60 @@ form {
   border: 1px #383838 solid;
 }
 
-@media screen and (max-width: 768px) {
+
+@media screen and (min-width: 1200px) {
   .container {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+  }
+  form {
+    grid-column: 1;
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  form {
+    width: 450px;
+  }
+  .input-container-mini {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr;
+
+    width: 100%;
+  }
+  form {
+    width: 85%;
+
+    margin-left: 1rem;
+  }
+  .input-container-mini {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    grid-template-columns: 1fr;
+    width: 360px;
+  }
+  form {
+    width: 260px;
+  }
+  .input-container-mini {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
 </style>

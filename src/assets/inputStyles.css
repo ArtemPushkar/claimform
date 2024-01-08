@@ -1,0 +1,68 @@
+.inputForm {
+  height: 1.5rem;
+  margin: 0.5rem;
+}
+
+.form {
+  background-color: var(--label-color);
+}
+
+.input-container {
+  border: 1px var(--input-border-color) solid;
+  background-color: var(--input-bg-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+}
+
+.input-container-mini {
+  border: 1px var(--input-border-color) solid;
+  background-color: var(--input-bg-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.inputSubmit {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--btn-text-color);
+  background-color: var(--btn-bg-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inputSubmit:hover {
+  background-color: var(--btn-bgHover-color);
+}
+
+textarea {
+  height: 1.5rem;
+  margin: 0.5rem;
+}
+
+.selectInput {
+  height: 1.5rem;
+  margin: 0.5rem;
+  width: 97%;
+}
+
+.labelForm {
+  color: var(--label-color);
+}
+
+.hintInputContainer {
+  color: antiquewhite;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  font-size: small;
+}
