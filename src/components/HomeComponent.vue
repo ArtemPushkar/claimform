@@ -1,7 +1,7 @@
 <template>
   <body>
     <div class="container">
-      <h1>ЗАСТРОЙЩИКОНЛАЙН.РФ</h1>
+      <h3>ЗАСТРОЙЩИКОНЛАЙН.РФ</h3>
       <div class="button-wrapper">
         <router-link to="/claimForm">
           <button class="homeButton">Создать претензию</button>
@@ -33,13 +33,17 @@ export default {
 @import "../assets/buttonStyles.css";
 
 body {
+
+  text-align: center;
+  max-width: 90%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  font-size: small;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 90%;
   margin: 0 auto;
   padding: 20px;
 }
