@@ -10,7 +10,7 @@
             <h2>
               1. Заполните форму и нажмите кнопку "Скачать претензию".<br>
               2. На ваше устройство загрузится составленная претензия в формате PDF.<br>
-              3. Отправьте претензию застройщику через управляющую компанию.
+              3. Отправьте претензию по электронной почте.
             </h2>
           </div>
 
@@ -454,13 +454,17 @@ form {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) and (min-width: 480px) {
   .container {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+    width: calc(100vw - 2rem);
+    box-sizing: border-box;
   }
   form {
-    width: 450px;
+    width: 100%;
   }
   .input-container-mini {
     flex-direction: column;
@@ -470,14 +474,14 @@ form {
 
 @media screen and (max-width: 480px) {
   .container {
-    grid-template-columns: 1fr;
-
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem;
+    padding: 1rem;
+    width: calc(100vw - 2rem);
+    box-sizing: border-box;
   }
   form {
-    width: 85%;
-
-    margin-left: 1rem;
   }
   .input-container-mini {
     flex-direction: column;

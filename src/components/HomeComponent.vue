@@ -35,7 +35,6 @@ export default {
 body {
 
   text-align: center;
-  max-width: 90%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -64,7 +63,9 @@ h1 {
 .footer {
   background-color: #f1f1f1;
   padding: 10px;
-  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .contacts {
