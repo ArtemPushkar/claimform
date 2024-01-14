@@ -6,12 +6,12 @@
           <button class="formButton">Закрыть форму</button>
         </router-link>
         <form class="form" onsubmit="return false">
-          <div class="headerForm">
-            <h2>
+          <div>
+            <p class="headerForm">
               1. Заполните форму и нажмите кнопку "Скачать претензию".<br>
               2. На ваше устройство загрузится составленная претензия в формате PDF.<br>
-              3. Отправьте претензию по электронной почте.
-            </h2>
+              3. Отправьте претензию застройщику через управляющую компанию или по почте.
+            </p>
           </div>
 
           <h3>Кому:</h3>
@@ -436,6 +436,7 @@ form {
   padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
+  font-size: large;
 }
 
 #signature {
@@ -456,16 +457,20 @@ form {
 
 @media screen and (max-width: 1200px) and (min-width: 480px) {
   .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 1rem;
+    margin: 0.5rem;
     padding: 1rem;
-    width: calc(100vw - 2rem);
+    width: calc(100vw - 1rem);
     box-sizing: border-box;
   }
+
   form {
     width: 100%;
   }
+
+  .headerForm {
+    font-size: large;
+  }
+
   .input-container-mini {
     flex-direction: column;
     align-items: flex-end;
@@ -475,14 +480,21 @@ form {
 @media screen and (max-width: 480px) {
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 1rem;
-    padding: 1rem;
-    width: calc(100vw - 2rem);
+    grid-template-columns: 1fr;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    width: calc(100vw - 0.4rem);
     box-sizing: border-box;
   }
   form {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    width: calc(100vw - 1rem);
   }
+  .headerForm {
+    font-size: medium;
+  }
+
   .input-container-mini {
     flex-direction: column;
     align-items: flex-end;

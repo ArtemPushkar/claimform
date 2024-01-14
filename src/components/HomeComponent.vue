@@ -4,13 +4,10 @@
       <h3>ЗАСТРОЙЩИКОНЛАЙН.РФ</h3>
       <div class="button-wrapper">
         <router-link to="/claimForm">
-          <button class="homeButton">Создать претензию</button>
-        </router-link>
-        <router-link to="/inspectionReportForm">
-          <button class="homeButton">Создать акт осмотра</button>
+          <button class="homeButton">Создать претензию на застройщика</button>
         </router-link>
         <router-link to="/apartInspectionChecklist">
-          <button class="homeButton">Инструкция по приемке квартиры</button>
+          <button class="homeButton">Создать претензию на подрядчика</button>
         </router-link>
       </div>
     </div>
