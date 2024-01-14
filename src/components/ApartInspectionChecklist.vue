@@ -369,7 +369,7 @@
         y += textJoinHeight5 + 20;
 
         // Подписант
-        this.doc.text(`${this.data.nameClaimant || ''}`,20, y);
+        this.doc.text(`${this.data.nameClaimant || ''}`,20, y,{maxWidth: 80});
 
         // Добавление подписи на документ
         const { data } = this.$refs.signaturePad.saveSignature();
