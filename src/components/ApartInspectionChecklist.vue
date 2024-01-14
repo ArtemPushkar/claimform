@@ -373,7 +373,7 @@
 
         // Добавление подписи на документ
         const { data } = this.$refs.signaturePad.saveSignature();
-        data && this.doc.addImage(data, 'PNG', 70, y-20, 45, 45);
+        data && this.doc.addImage(data, 'PNG', 100, y-20, 45, 45);
 
         // Добавление текущей даты на документ
         this.doc.text(`${constants.currentData.toLocaleString()}`,150, y);
