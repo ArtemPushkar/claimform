@@ -14,7 +14,6 @@
   </body>
   <footer class="footer">
     <div class="contacts">
-      <a href="https://t.me/zstronline">https://t.me/zstronline</a>
       <p>e-mail: <strong>zstronline@yandex.ru</strong></p>
     </div>
   </footer>
